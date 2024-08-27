@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Visibility API</title>
+</head>
+<body>
+    <h1>Javascript Page Visibility API</h1>
+    <h2>Pausing and Resuming Media Example</h2>
+
+    <video id="myVideo" width="600" controls loop>
+        <source src="./assets/videoExample.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- <script src="./script.js"></script> -->
+
+<script>
+    // Get the video element
+    const video = document.getElementById('myVideo');
+
+    // Listen for visibility change event
+    document.addEventListener('visibilitychange', function() {
+        if (document.visibilityState === 'hidden') {
+            video.pause();  // Pause the video when the page is hidden
+            console.log("video paused")
+        } else {
+            video.play();   // Resume playing when the page is visible
+            console.log("video resumed")
+        }
+    });
+</script>
+</body>
+</html>

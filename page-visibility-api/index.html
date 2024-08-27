@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Notification Example</title>
+</head>
+<body>
+    <h1>Check for Notifications</h1>
+
+    <script>
+        // Function to show a notification
+        function showNotification() {
+            if (Notification.permission === "granted") {
+                new Notification("Hey! You're missing out, come back!");
+            }
+        }
+
+        // Request notification permission on page load
+        if (Notification.permission !== "granted") {
+            Notification.requestPermission().then(permission => {
+                if (permission === "granted") {
+                    console.log("Notification permission granted.");
+                }
+            });
+        }
+
+        // Listen for visibility change event
+        document.addEventListener('visibilitychange', function() {
+            if (document.visibilityState === 'hidden' && Notification.permission === "granted") {
+                showNotification();  // Show notification when the page is hidden
+            }
+        });
+    </script>
+</body>
+</html>
