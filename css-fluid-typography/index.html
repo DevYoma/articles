@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Fluid Typography</title>
+</head>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            font-family: Arial, sans-serif;
+            background: #333;
+            color: white;
+            text-align: center;
+            /* font-size: 10px; */
+        }
+
+        h1{
+            /* font-size: 5rem; */
+            /* font-size: 10vw; */
+            font-size: clamp(24px, 5vw, 48px); 
+        }
+
+        p{
+            /* font-size: 3rem; */
+            /* font-size: 5vw; */
+            font-size: clamp(16px, 3vw, 24px);
+            color: lightgreen;
+        }
+    </style>
+<body>
+    <h1>CSS Fluid Typography</h1>
+    <!-- <p>Why is this text not scalable</p> -->
+     <p>This text is now responsive</p>
+</body>
+</html>
+
